@@ -1,10 +1,20 @@
 
-<h1>{{title}}</h1>
+<h1>Course Details</h1>
+
+<h2>{{title}}</h2>
 Duration : {{duration}} hours
 <p></p>
 Fee : {{fee}} INR
+<h3>Topics</h3>
+<ul>
+    <li *ngFor="let topic of topics"> {{topic}} </li> 
+</ul>
+Topic : <input type="text" #topic/>
+<button (click)="addTopic(topic.value)">Add</button>
 
 <p></p>
 <button (click)="showDiscount()">Show Discount</button>
 
 <h3 *ngIf="discount > 0">{{discount}}</h3>
+
+
