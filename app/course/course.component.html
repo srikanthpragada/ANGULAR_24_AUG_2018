@@ -1,0 +1,10 @@
+
+<h1>{{title}}</h1>
+Duration : {{duration}} hours
+<p></p>
+Fee : {{fee}} INR
+
+<p></p>
+<button (click)="showDiscount()">Show Discount</button>
+
+<h3 *ngIf="discount > 0">{{discount}}</h3>

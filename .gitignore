@@ -1,0 +1,6 @@
+/app/*.js
+/app/*.js.*
+/assets/*.*
+/environments/*.*
+/**/*.js
+upload.bat
