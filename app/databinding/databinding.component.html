@@ -1,4 +1,34 @@
 <h1>Data Binding Demo</h1>
 
-<div  [innerHTML]="Testing..."></div>
+<div  [innerHTML]="'Testing...'"></div>
 <div  [innerHTML]="title"></div>
+
+<input [attr.type]="itype"  />
+<p></p>
+<input type="checkbox" #bright (click)="null"  />Bright 
+<input type="checkbox" #big  (click)="null"  />Big 
+<p></p>
+
+<div  [class.bright]='bright.checked' 
+      [class.big]="big.checked">This is a div</div>
+
+<p></p>      
+<div  [style.color]="color">This is another div</div>
+
+<button (click)="showInfo($event)">Click on Me</button>
+
+<p></p>
+
+<div  [ngClass]="{'big': big.checked}">ngClass Demo</div>
+
+<div  [ngStyle]="{'font-size': big.checked ? '20pt' : '10pt' }">ngStyle Demo</div>
+
+<div *ngIf="false; then trueblock; else falseblock"></div>
+<ng-template #trueblock><h2>True Block</h2></ng-template>
+<ng-template #falseblock><h3>False Block</h3></ng-template>
+
+<p></p>
+<div *ngFor="let n of nums;let oddrow = odd;let i = index">
+    <span [style.font-size]="oddrow ? '20pt': '12pt'" 
+               [innerText]="(i + 1) + ':' + n"></span>
+</div>
