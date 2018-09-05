@@ -1,15 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { DataBindingComponent } from './databinding/databinding.component';
+import { FirstComponent } from './icc/first.component';
+import { SecondComponent } from './icc/second.component';
+import { ThirdComponent } from './icc/third.component';
+import { FourthComponent } from './icc/fourth.component';
+import { BracketsPipe } from './pipes/brackets.pipe';
 
 @NgModule({
   declarations: [
-    DataBindingComponent
-  ],
+       FirstComponent, SecondComponent, ThirdComponent, FourthComponent
+   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [DataBindingComponent]
+  bootstrap: [FirstComponent, SecondComponent, ThirdComponent]
 })
 export class AppModule { }
