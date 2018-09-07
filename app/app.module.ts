@@ -1,19 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FirstComponent } from './icc/first.component';
-import { SecondComponent } from './icc/second.component';
-import { ThirdComponent } from './icc/third.component';
-import { FourthComponent } from './icc/fourth.component';
-import { BracketsPipe } from './pipes/brackets.pipe';
+
+import { CourseListComponent } from './icc/courselist.component';
+import { CourseDetailsComponent } from './icc/coursedetails.component';
+import { ConvertComponent } from './service/convert.component';
+import { CounterService } from './service/counter.service';
+import { IncrementComponent } from './service/increment.component';
+import { DecrementComponent } from './service/decrement.component';
 
 @NgModule({
   declarations: [
-       FirstComponent, SecondComponent, ThirdComponent, FourthComponent
+       ConvertComponent
    ],
   imports: [
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [FirstComponent, SecondComponent, ThirdComponent]
+  providers: [ ],
+  bootstrap: [ConvertComponent]
 })
 export class AppModule { }

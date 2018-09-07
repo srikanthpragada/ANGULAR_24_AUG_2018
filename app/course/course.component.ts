@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'st-course',
   templateUrl: './course.component.html'
 })
 export class CourseComponent  {
+  @ViewChild("topic") txtTopic : ElementRef; 
   title : string;
   duration : number;
   fee : number;
@@ -28,6 +29,7 @@ export class CourseComponent  {
     }
     
     this.topics.push(topic)
+    this.txtTopic.nativeElement.value = ""  // clear text from textbox 
   }
   showDiscount() {
      this.discount = this.fee * 0.10

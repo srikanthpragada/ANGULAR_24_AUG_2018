@@ -1,0 +1,7 @@
+<h1>Courses List</h1>
+
+<div *ngFor="let c of courses;let idx=index">
+    <st-course-details [course]="c"  [index]="idx"
+         (deleteCourse)="deleteCourse($event)"></st-course-details>
+    <hr/>
+</div>

@@ -1,0 +1,13 @@
+<h3>Preferred IDE</h3>
+
+Select Course:
+<select (change)="null" #name>
+  <option *ngFor="let c of courses;let i = index" value="{{i}}">{{c}}</option>
+</select>
+
+<div [ngSwitch]="name.value">
+  <h3 *ngSwitchCase="0">PyCharm</h3>
+  <h3 *ngSwitchCase="1">VS Code</h3>
+  <h3 *ngSwitchCase="2">Eclipse</h3>
+  <h3 *ngSwitchCase="3">Visual Studio</h3>
+</div>

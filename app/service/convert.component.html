@@ -1,0 +1,8 @@
+
+<h2>Currency Conversion</h2>
+
+Amount in INR <input type="number" #amount/>
+<button (click)="convertToUsd(amount.value)">USD</button>
+<h3 *ngIf="result > 0">
+   USD =  {{result}}
+</h3>
