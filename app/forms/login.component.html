@@ -1,0 +1,48 @@
+<style>
+        input.ng-invalid.ng-dirty  
+        {
+            color :red;
+            border-color:red;
+            border-width: 2px;
+        }
+        input.ng-valid  
+        {
+            color :green;
+        }
+</style>
+
+<h1>Login </h1>
+
+<form (ngSubmit)="login()" #loginForm="ngForm"  novalidate>
+Username <br>
+<input type="text" name="username" #uname="ngModel"
+            [(ngModel)]="username" required /> 
+            <span *ngIf="uname.invalid && uname.dirty">Username is missing </span>
+<p></p>
+password <br>
+<input type="password" name="password" #pwd="ngModel" 
+             [(ngModel)]="password" required  maxlength="10" minlength="6"/>
+            <span *ngIf="pwd.dirty && pwd.invalid">
+               <span *ngIf="pwd.errors?.required">Password is missing </span>
+               <span *ngIf="pwd.errors?.minlength">
+                   Min length is [{{pwd.errors.minlength.requiredLength}}] but you entered
+                   [{{ pwd.errors.minlength.actualLength}}] </span>
+            </span>
+<p></p>
+<input name="autologin" type="checkbox" [(ngModel)]="autologin"/>Auto Login
+<p></p>
+<button [disabled]="loginForm.invalid">Login</button>
+<p></p>
+
+Username Valid : {{uname.valid}}
+ <br>
+Touched {{loginForm.touched}}
+ <br>
+Dirty {{loginForm.dirty}}
+<br>
+Form Submitted : {{loginForm.submitted}}
+<p></p>
+pwd.errors : {{pwd.errors | json }}
+<p></p>
+
+</form>

@@ -1,21 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { CourseListComponent } from './icc/courselist.component';
-import { CourseDetailsComponent } from './icc/coursedetails.component';
-import { ConvertComponent } from './service/convert.component';
-import { CounterService } from './service/counter.service';
-import { IncrementComponent } from './service/increment.component';
-import { DecrementComponent } from './service/decrement.component';
+import { LoginComponent } from './forms/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-       ConvertComponent
+       LoginComponent
    ],
   imports: [
-    BrowserModule
+    BrowserModule , FormsModule
   ],
   providers: [ ],
-  bootstrap: [ConvertComponent]
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }

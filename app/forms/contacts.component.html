@@ -1,0 +1,47 @@
+<html>
+
+<body>
+    <h1>Contacts</h1>
+    <form  #addForm="ngForm">
+        Contact Name
+        <br/>
+        <input type="text" name="name" #name="ngModel"
+             [(ngModel)]="contact.name" required />
+        <p></p>
+        Email Address
+        <br/>
+        <input type="text" name="email" #email="ngModel" 
+             [(ngModel)]="contact.email" />
+        <p></p>
+        Mobile Number
+        <br/>
+        <input type="text" name="mobile" #mobile="ngModel"
+              [(ngModel)]="contact.mobile" />
+        <p></p>
+        <button *ngIf="!editing" (click)="addContact()">Add Contact</button>
+        <button *ngIf="editing" (click)="updateContact()">Update</button>
+    </form>
+
+    <div *ngIf="contacts.length > 0">
+        <h2>Available Contacts</h2>
+        <table border="1" width="100%">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr *ngFor="let c of contacts;let idx = index">
+                <td>{{c.name}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.mobile}}</td>
+                <td>
+                    <button (click)="deleteContact(idx)">Delete</button>
+                    <button (click)="editContact(idx)">Edit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

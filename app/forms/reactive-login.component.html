@@ -1,0 +1,23 @@
+<h1>Reactive Login </h1>
+
+<form (ngSubmit)="login()" [formGroup]="loginForm">
+    Username <br>
+    <input type="text" formControlName="username" />
+    <span *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.errors?.required">Required!</span>
+    <span *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.errors?.pattern">Only letters are allowed!</span>
+    <p></p>
+    password <br>
+    <input type="password" formControlName="password" />
+    <span *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.errors?.required">Required!</span>
+    <span *ngIf="loginForm.controls.password.dirty && loginForm.controls.password.errors?.mustHaveStar">Star is missing!</span>
+    <p></p>
+    <button>Login</button>
+    <p></p>
+    Username is dirty : {{ loginForm.controls.username.dirty}}
+    <p></p>
+    password.errors  : {{ loginForm.controls.password.errors | json}}
+    <p></p>
+    loginForm.errors  : {{ loginForm.errors | json}}
+
+    <h4 *ngIf="loginForm.dirty && loginForm.errors?.match">Password cannot be same as username </h4>
+</form>
