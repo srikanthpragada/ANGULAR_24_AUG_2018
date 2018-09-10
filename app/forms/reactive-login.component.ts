@@ -13,6 +13,7 @@ export class ReactiveLoginComponent {
     // FormControl validator 
     mustHaveStar(control : FormControl) 
     {
+       // console.log("Called mustHaveStar with " + control.value);
        // if no data is present then valid 
        if(control.value == "")
           return null;
@@ -36,11 +37,11 @@ export class ReactiveLoginComponent {
 
     ngOnInit() { 
        this.username = new FormControl("", 
-                    [Validators.required 
-                      // Validators.pattern("[a-zA-Z]+")
+                    [Validators.required //    Validators.pattern("[a-zA-Z]+")
                     ]) ;
        this.password = new FormControl("",
-                    [Validators.required, this.mustHaveStar]);
+                    [Validators.required,
+                     this.mustHaveStar]);
 
        this.loginForm = new FormGroup(
          { 
@@ -54,6 +55,8 @@ export class ReactiveLoginComponent {
    login() {
      if ( this.loginForm.valid) {
             // process 
+            console.log("Username : " + this.username.value);
+            console.log("Password : " + this.password.value);
      }
 
      console.log( this.username);
