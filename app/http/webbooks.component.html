@@ -1,0 +1,19 @@
+   <h1>Books</h1>
+    These books come from  test.srikanthpragada.com
+ <p></p>
+    <table border="1" style="width:100%">
+        <tr>
+            <th>Id </th>
+            <th>Title </th>
+            <th>Price </th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let b of books; let idx = index">
+            <td> {{ b.Id }} </td>
+            <td> {{ b.Title }} </td>
+            <td> {{ b.Price }} </td>
+            <td style="text-align:center">
+                 <button  (click)="deleteBook(b.Id,idx)">Delete</button></td>
+        </tr>
+    </table>
+

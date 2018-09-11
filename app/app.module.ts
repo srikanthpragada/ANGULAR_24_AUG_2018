@@ -1,17 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LoginComponent } from './forms/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { ReactiveLoginComponent } from './forms/reactive-login.component';
+import { HttpClientModule} from "@angular/common/http";
+import { BooksComponent } from './http/books.component';
+import { WebBooksComponent } from './http/webbooks.component';
+import { CountryComponent } from './http/country.component';
 
 @NgModule({
   declarations: [
-       ReactiveLoginComponent
+      CountryComponent
    ],
   imports: [
-    BrowserModule , ReactiveFormsModule
+    BrowserModule , HttpClientModule 
   ],
   providers: [ ],
-  bootstrap: [ReactiveLoginComponent]
+  bootstrap: [ CountryComponent ]
 })
 export class AppModule { }

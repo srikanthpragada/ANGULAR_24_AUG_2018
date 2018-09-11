@@ -1,0 +1,21 @@
+
+<h1>Country Search</h1>
+Name : <input type="text" #countryname/>
+<button (click)="getCountries(countryname.value)">Search</button>
+
+<p></p>
+
+<table border="1" style="width:100%">
+    <tr>
+        <th>Name </th>
+        <th>Capital </th>
+        <th>Population </th>
+        <th>Region </th>
+    </tr>
+    <tr *ngFor="let c of countries">
+        <td> {{ c.name }} </td>
+        <td> {{ c.capital }} </td>
+        <td> {{ c.population }} </td>
+        <td> {{ c.region }} </td>
+    </tr>
+</table>
