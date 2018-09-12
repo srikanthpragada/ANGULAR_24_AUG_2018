@@ -4,4 +4,5 @@ export class Country
     capital : string;
     population: number;
     region : string;
+    flag : string;
 }

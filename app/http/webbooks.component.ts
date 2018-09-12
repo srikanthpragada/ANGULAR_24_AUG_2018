@@ -1,23 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { WebBook } from './WebBook';
-// import { BooksService } from '../service/books.service'
 import { HttpClient } from '@angular/common/http'
+import { BooksService } from '../service/books.service';
 
 // import 'rxjs/add/operator/filter';
 // import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'st-books',
-    templateUrl: './webbooks.component.html'
+    templateUrl: './webbooks.component.html',
+    providers :[BooksService]
 })
 export class WebBooksComponent implements OnInit {
     books: WebBook[];
     URL = "http://test.srikanthpragada.com/api/books"
-    constructor(private http : HttpClient) {
+    constructor(private http : HttpClient, private booksService : BooksService) {
     }
 
     ngOnInit() {
-        this.getAllBooks()
+        // this.getAllBooks()
+        this.getAllBooksByService()
     }
 
     getAllBooks() {
@@ -26,10 +28,10 @@ export class WebBooksComponent implements OnInit {
         console.log("Completed!")      
     }
 
+    // Get books through service 
     getAllBooksByService() {
-       // this.booksService.getAllBooks()
-            // .map(this.costlyBooks)
-         //   .subscribe(result => this.books = result);
+        this.booksService.getAllBooks()
+               .subscribe(result => this.books = result);
     }
 
     deleteBook(id: number, idx : number) {
