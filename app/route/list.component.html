@@ -1,0 +1,9 @@
+<h1>List Of Countries </h1>
+
+<ul>
+<li *ngFor="let c of countries">
+      <a  [routerLink]="['/details', c.Code]"> {{c.Name}} </a>
+       &nbsp;
+       <a  [routerLink]="['/delete', c.Code]"> Delete </a>
+</ul>
+    
